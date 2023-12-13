@@ -1,11 +1,12 @@
 package com.example.cinemagicgto.cinemarestful.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "resena")
@@ -14,4 +15,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Resena {
+
+    @Id
+    private int resenaID;
+
+    @ManyToOne
+    @JoinColumn(name = "usuarioID")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "peliculaID")
+    private Pelicula pelicula;
+
+    private int calificacion;
+    private String comentario;
+    private Timestamp fechaResena;
 }

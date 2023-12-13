@@ -7,24 +7,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Time;
+
 @Entity
-@Table(name = "funcion")
+@Table(name = "pelicula")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Funcion {
+public class Horario {
     @Id
-    private int funcionID;
+    private int horarioID;
 
     @ManyToOne
     @JoinColumn(name = "peliculaID")
     private Pelicula pelicula;
 
-    @ManyToOne
-    @JoinColumn(name = "horarioID")
-    private Horario horario;
+    private Date fecha;
+    private Time horaInicio;
+    private String sala;
+    private BigDecimal precio;
 
-    private String clasificacion;
-    private int numAsientosDisponibles;
 }
