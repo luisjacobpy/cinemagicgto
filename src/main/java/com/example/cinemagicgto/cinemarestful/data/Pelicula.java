@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Pelicula {
     @Id
-    private int peliculaID;
+    private Long peliculaID;
     private String titulo;
     private String descripcion;
     private String clasificacion;

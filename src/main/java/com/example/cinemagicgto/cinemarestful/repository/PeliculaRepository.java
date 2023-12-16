@@ -6,10 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PeliculaRepository  extends JpaRepository<Pelicula, Integer> {
+public interface PeliculaRepository  extends JpaRepository<Pelicula, Long> {
 
-    @Query(value = """
-            SELECT c FROM Pelicula c
-            """)
-    List<Pelicula> findAllPeliculas();
 }

@@ -15,10 +15,21 @@ import lombok.NoArgsConstructor;
 public class Usuario {
 
     @Id
-    private int usuarioID;
-    private String nombre;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long usuarioID;
 
-    @Enumerated(EnumType.STRING)
-    private String tipoUsuario;
+    private String nombre;
+    private String correo;
+
+    @Enumerated
+    private TipoUsuario tipoUsuario;
+
+
+
+    // Constructores
+    public enum TipoUsuario{
+        ADMINISTRADOR,
+        CLIENTE
+    }
 
 }
