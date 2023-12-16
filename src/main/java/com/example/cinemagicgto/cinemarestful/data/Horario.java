@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
-@Table(name = "pelicula")
+@Table(name = "horario")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
