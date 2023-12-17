@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Funcion {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int funcionID;
 
     @ManyToOne

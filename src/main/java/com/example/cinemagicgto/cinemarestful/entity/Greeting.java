@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

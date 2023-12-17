@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
@@ -19,6 +19,7 @@ import java.sql.Time;
 @Builder
 public class Horario {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int horarioID;
 
     @ManyToOne

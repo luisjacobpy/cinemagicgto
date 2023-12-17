@@ -1,6 +1,6 @@
 package com.example.cinemagicgto.cinemarestful.service;
 
-import com.example.cinemagicgto.cinemarestful.data.Pelicula;
+import com.example.cinemagicgto.cinemarestful.entity.Pelicula;
 import com.example.cinemagicgto.cinemarestful.error.PeliculaNotFoundException;
 
 import java.util.List;
@@ -14,10 +14,10 @@ public interface PeliculaService {
     Pelicula savePelicula(Pelicula pelicula);
 
     // Update Pelicula
-    Pelicula updatePelicula(Long id, Pelicula pelicula);
+    Pelicula updatePelicula(Integer id, Pelicula pelicula);
 
     // Delete Pelicula
-    void deletePelicula(Long id);
+    void deletePelicula(Integer id);
 
 
 

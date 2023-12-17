@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,6 +17,7 @@ import java.sql.Timestamp;
 public class Resena {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int resenaID;
 
     @ManyToOne

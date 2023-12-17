@@ -1,8 +1,6 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +14,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Pelicula {
     @Id
-    private Long peliculaID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int peliculaID;
     private String titulo;
     private String descripcion;
     private String clasificacion;

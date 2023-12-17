@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
@@ -18,6 +18,7 @@ import java.security.Timestamp;
 @Builder
 public class Compra {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int compraID;
 
     @ManyToOne

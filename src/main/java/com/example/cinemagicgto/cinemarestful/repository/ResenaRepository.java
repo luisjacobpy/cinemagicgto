@@ -1,6 +1,6 @@
 package com.example.cinemagicgto.cinemarestful.repository;
 
-import com.example.cinemagicgto.cinemarestful.data.Resena;
+import com.example.cinemagicgto.cinemarestful.entity.Resena;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

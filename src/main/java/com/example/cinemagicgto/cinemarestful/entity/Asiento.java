@@ -1,4 +1,4 @@
-package com.example.cinemagicgto.cinemarestful.data;
+package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Asiento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "AsientoID")
     private int asientoID;
 

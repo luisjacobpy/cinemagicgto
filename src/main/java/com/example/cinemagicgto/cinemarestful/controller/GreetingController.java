@@ -1,6 +1,6 @@
 package com.example.cinemagicgto.cinemarestful.controller;
 
-import com.example.cinemagicgto.cinemarestful.data.Greeting;
+import com.example.cinemagicgto.cinemarestful.entity.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
