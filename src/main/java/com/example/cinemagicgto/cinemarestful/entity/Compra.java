@@ -21,23 +21,26 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int compraID;
 
-    @ManyToOne
-    @JoinColumn(name = "usuarioID")
-    private Usuario usuario;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "UsuarioID")
+    private Usuario usuarioID;
 
     @ManyToOne
-    @JoinColumn(name = "horarioID")
-    private Horario horario;
+    @JoinColumn(name = "HorarioID")
+    private Horario horarioID;
 
-    @ManyToOne
-    @JoinColumn(name = "asientoID")
-    private Asiento asiento;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "AsientoID")
+    private Asiento asientoID;
 
+    @Column(name = "FechaCompra", nullable = false)
     private Timestamp fechaCompra;
+
+    @Column(name = "TotalPago", nullable = false)
     private BigDecimal totalPago;
 
-    @ManyToOne
-    @JoinColumn(name = "medioPagoID")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "MedioPagoID")
     private MedioDePago medioDePago;
 
 }

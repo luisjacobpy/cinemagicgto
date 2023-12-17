@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 @Table(name = "horario")
@@ -31,4 +32,10 @@ public class Horario {
     private String sala;
     private BigDecimal precio;
 
+    @OneToMany(mappedBy = "horarioID", cascade = CascadeType.ALL)
+    private List<Asiento> asientos;
+
+    public List<Asiento> getAsientos() {
+        return asientos;
+    }
 }

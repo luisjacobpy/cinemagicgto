@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "asiento")
+@Table(name = "asientos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,9 +19,9 @@ public class Asiento {
     @Column(name = "AsientoID")
     private int asientoID;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioId")
-    private Horario horario;
+    private Horario horarioID;
 
     @Column(name = "NumeroAsiento")
     private int numeroAsiento;
