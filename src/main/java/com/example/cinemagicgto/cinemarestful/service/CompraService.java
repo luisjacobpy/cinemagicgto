@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CompraService {
     List<Compra> findAllCompras();
+
+    Compra realizarCompra(CompraRequest compraRequest);
 }

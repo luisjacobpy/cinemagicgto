@@ -23,7 +23,15 @@ public class Compra {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "UsuarioID")
-    private Usuario usuarioID;
+    private Usuario usuario;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "titulo")
+    private Pelicula titulo;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "clasificacion")
+    private Pelicula clasificacion;
 
     @ManyToOne
     @JoinColumn(name = "HorarioID")

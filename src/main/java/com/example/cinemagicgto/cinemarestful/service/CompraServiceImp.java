@@ -12,8 +12,16 @@ public class CompraServiceImp implements CompraService{
 
     @Autowired
     CompraRepository compraRepository;
+
     @Override
     public List<Compra> findAllCompras() {
         return compraRepository.findAll();
     }
+
+    @Override
+    public Compra realizarCompra(CompraRequest compraRequest){
+
+
+    }
+
 }
