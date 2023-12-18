@@ -2,22 +2,26 @@ package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "asientos")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
 public class Asiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "AsientoID")
     private int asientoID;
+
+    @Column(name = "precioAsiento")
+    private BigDecimal precioAsiento;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioId")
@@ -28,5 +32,4 @@ public class Asiento {
 
     @Column(name = "Disponible")
     private Boolean disponible;
-
 }

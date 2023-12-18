@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "pelicula")
 @Data
@@ -21,5 +23,6 @@ public class Pelicula {
     private String clasificacion;
     private int duracion;
     private String genero;
+
 
 }

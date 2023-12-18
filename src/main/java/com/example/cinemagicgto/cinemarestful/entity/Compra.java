@@ -2,20 +2,20 @@ package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.security.Timestamp;
 
 @Entity
 @Table(name = "compra")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
+
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class Compra {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "UsuarioID")
-    private Usuario usuario;
+    private Usuario usuarioID;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "titulo")
@@ -33,7 +33,7 @@ public class Compra {
     @JoinColumn(name = "clasificacion")
     private Pelicula clasificacion;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioID")
     private Horario horarioID;
 
@@ -49,6 +49,5 @@ public class Compra {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "MedioPagoID")
-    private MedioDePago medioDePago;
-
+    private MedioDePago medioDePagoID;
 }

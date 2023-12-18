@@ -22,11 +22,11 @@ public class Resena {
 
     @ManyToOne
     @JoinColumn(name = "usuarioID")
-    private Usuario usuario;
+    private Usuario usuarioID;
 
     @ManyToOne
     @JoinColumn(name = "peliculaID")
-    private Pelicula pelicula;
+    private Pelicula peliculaID;
 
     private int calificacion;
     private String comentario;
