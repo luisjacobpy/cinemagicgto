@@ -42,12 +42,12 @@ public class PeliculaServiceImpl implements PeliculaService{
             peliculaDB.setDescripcion(pelicula.getDescripcion());
         }
 
-        if(Objects.nonNull(pelicula.getClasificacion()) && !"".equalsIgnoreCase(pelicula.getClasificacion())){
-            peliculaDB.setClasificacion(pelicula.getClasificacion());
+        if(Objects.nonNull(pelicula.getDuracion()) && !"".equalsIgnoreCase(String.valueOf(pelicula.getDuracion()))){
+            peliculaDB.setDuracion(pelicula.getDuracion());
         }
 
-        if(Objects.nonNull(pelicula.getClasificacion()) && !"".equalsIgnoreCase(pelicula.getClasificacion())){
-            peliculaDB.setClasificacion(pelicula.getClasificacion());
+        if(Objects.nonNull(pelicula.getGenero()) && !"".equalsIgnoreCase(pelicula.getGenero())){
+            peliculaDB.setGenero(pelicula.getGenero());
         }
 
         return peliculaRepository.save(peliculaDB);

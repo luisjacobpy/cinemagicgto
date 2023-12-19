@@ -36,7 +36,6 @@ public class Usuario {
     private Date updatedAt;
 
 
-
     // Constructores
     public enum TipoUsuario{
         ADMINISTRADOR,

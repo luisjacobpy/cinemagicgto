@@ -21,6 +21,7 @@ public class UsuarioController {
     public Usuario updateUsuario(@PathVariable Integer id, @RequestBody Usuario usuario){
         return usuarioService.updateUsuario(id, usuario);
 
+
     }
 
 

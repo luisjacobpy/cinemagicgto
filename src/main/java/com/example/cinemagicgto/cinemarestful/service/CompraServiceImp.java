@@ -2,13 +2,14 @@ package com.example.cinemagicgto.cinemarestful.service;
 
 import com.example.cinemagicgto.cinemarestful.dto.CompraRequestDTO;
 import com.example.cinemagicgto.cinemarestful.entity.Compra;
-import com.example.cinemagicgto.cinemarestful.entity.Pelicula;
 import com.example.cinemagicgto.cinemarestful.repository.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+
 
 @Service
 public class CompraServiceImp implements CompraService{
@@ -31,26 +32,29 @@ public class CompraServiceImp implements CompraService{
     }
 
     @Override
-    public Compra realizarCompra(CompraRequestDTO compraRequest) {
-        BigDecimal precioBase = compraRequest.getTitulo().getPrecio();
-        BigDecimal precioAsiento = compraRequest.getAsiento().getPrecioAsiento();
-        BigDecimal totalPago = calcularTotalPago(precioBase, precioAsiento);
+    public void realizarCompra(CompraRequestDTO compraRequestDTO) {
+        // Puedes realizar validaciones y lógica de negocio antes de realizar la compra
+        // por ejemplo, verificar la disponibilidad del asiento, la clasificación de la película, etc.
 
+        // Obtener el costo de la función desde Funcion en CompraRequestDTO
+        BigDecimal costoFuncion = compraRequestDTO.getCostoFuncion().getCostoFuncion();
+
+        // Calcular el total de la compra
+        BigDecimal totalPago = compraRequestDTO.calcularTotalPago(costoFuncion);
+
+        // Crear la entidad de compra
         Compra compra = Compra.builder()
-                .usuarioID(compraRequest.getUsuario())
-                .titulo(compraRequest.getTitulo())
-                .clasificacion(compraRequest.getClasificacion())
-                .horarioID(compraRequest.getHorarioID())
-                .asientoID(compraRequest.getAsiento())
-                .fechaCompra(new Timestamp(System.currentTimeMillis()))
-                .totalPago(totalPago)
-                .medioDePagoID(compraRequest.getMedioDePagoID())
+                .usuarioID(compraRequestDTO.getUsuario())
+                .titulo(compraRequestDTO.getPelicula())
+                .clasificacion(compraRequestDTO.getClasificacionPelicula())
+                .horarioID(compraRequestDTO.getHorarioID())
+                .asientoID(compraRequestDTO.getNumeroAsiento())
+                .fechaCompra(compraRequestDTO.getFechaCompra())
+                .totalPago(totalPago)  // Utilizar el total calculado
+                .medioDePagoID(compraRequestDTO.getMedioDePagoID())
                 .build();
 
-        return compraRepository.save(compra);
+        // Guardar la compra en la base de datos
+        compraRepository.save(compra);
     }
-
-
-
-
 }

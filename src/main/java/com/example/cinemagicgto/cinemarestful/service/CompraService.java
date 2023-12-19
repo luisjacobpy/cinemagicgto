@@ -11,6 +11,7 @@ public interface CompraService {
 
     BigDecimal calcularTotalPago(BigDecimal precioBase, BigDecimal precioAsiento);
 
-    Compra realizarCompra(CompraRequestDTO compraRequestDTO);
+
+    void realizarCompra(CompraRequestDTO compraRequestDTO);
 
 }

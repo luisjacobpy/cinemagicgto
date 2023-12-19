@@ -15,7 +15,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 public class Resena {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int resenaID;

@@ -4,8 +4,6 @@ package com.example.cinemagicgto.cinemarestful.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "asientos")
 @Getter
@@ -18,10 +16,7 @@ public class Asiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "AsientoID")
-    private int asientoID;
-
-    @Column(name = "precioAsiento")
-    private BigDecimal precioAsiento;
+    private int asientoID; // Numero de asiento
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioId")
@@ -31,5 +26,5 @@ public class Asiento {
     private int numeroAsiento;
 
     @Column(name = "Disponible")
-    private Boolean disponible;
+    private Boolean disponible; // Indica si el asiento esta disponible o no
 }

@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "pelicula")
 @Data
@@ -18,11 +16,9 @@ public class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int peliculaID;
-    private String titulo;
+    private String titulo; // Nombre de la pelicula
     private String descripcion;
-    private String clasificacion;
+    private String clasificacionPelicula;
     private int duracion;
     private String genero;
-
-
 }

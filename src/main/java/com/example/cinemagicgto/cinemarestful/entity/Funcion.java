@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "funcion")
 @Data
@@ -45,5 +47,7 @@ public class Funcion {
     @JoinColumn(name = "HoraInicioID")
     private Horario horaInicioID;
 
+    @Column(name = "CostoFuncion", nullable = false)
+    private BigDecimal costoFuncion;
 
 }
