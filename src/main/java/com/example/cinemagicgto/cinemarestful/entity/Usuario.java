@@ -19,10 +19,14 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int usuarioID;
 
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "Correo", nullable = false)
     private String correo;
 
     @Enumerated
+    @Column(name = "TipoUsuario", nullable = false)
     private TipoUsuario tipoUsuario;
 
     // Se agrega para identificar la fecha de creacion de usuario

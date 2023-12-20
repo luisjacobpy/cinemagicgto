@@ -27,7 +27,12 @@ public class Resena {
     @JoinColumn(name = "peliculaID")
     private Pelicula peliculaID;
 
+    @Column(name = "Clasificacion", nullable = true, length = 45)
     private int calificacion;
+
+    @Column(name = "Comentario", nullable = true, length = 100)
     private String comentario;
+
+    @Column(name = "FechaResena", nullable = true)
     private Timestamp fechaResena;
 }

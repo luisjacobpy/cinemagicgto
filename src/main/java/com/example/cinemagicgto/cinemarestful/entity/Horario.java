@@ -23,14 +23,19 @@ public class Horario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int horarioID;
 
-    @ManyToOne
+    @ManyToMany // Una pelicula puede tener muchos horarios
     @JoinColumn(name = "peliculaID")
     private Pelicula pelicula;
 
     private Date fecha;
-    private Time horaInicio;
-    private String sala;
-    private BigDecimal precio;
+
+    @OneToOne // Una funcion puede tener un horario
+    @JoinColumn(name = "HoraInicioID")
+    private Funcion horaInicio;
+
+    @OneToMany
+    @JoinColumn(name = "SalaID")
+    private Funcion salaID;
 
     @OneToMany(mappedBy = "horarioID", cascade = CascadeType.ALL)
     private List<Asiento> asientos;
