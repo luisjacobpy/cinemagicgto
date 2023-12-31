@@ -20,7 +20,8 @@ public class Asiento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FuncionID")
-    private Funcion funcion;
+    private Funcion funcionID;
+
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioId")

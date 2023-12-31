@@ -30,10 +30,6 @@ public class Funcion {
     private Horario horario;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "HoraInicioID")
-    private Horario horaInicioID;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "FechaID")
     private Horario fecha;
 
@@ -47,8 +43,16 @@ public class Funcion {
     @Column(name = "NumAsientosDisponibles", nullable = false)
     private int numAsientosDisponibles;
 
-    @OneToMany(mappedBy = "asientos", cascade = CascadeType.ALL)
+    @OneToMany(
+            fetch = FetchType.LAZY
+            )
+    @JoinTable(
+            name = "funcion_asientos", // Nombre de la tabla relacional
+            joinColumns = @JoinColumn(name = "funcionID"),
+            inverseJoinColumns = @JoinColumn(name = "asientoID")
+    )
     private List<Asiento> asientos;
+
 
     @Column(name = "CostoFuncion", nullable = false)
     private BigDecimal costoFuncion;
