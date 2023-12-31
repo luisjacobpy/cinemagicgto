@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "compra")
@@ -42,7 +42,7 @@ public class Compra {
     private Asiento asientoID;
 
     @Column(name = "FechaCompra", nullable = false)
-    private Timestamp fechaCompra;
+    private LocalDateTime fechaCompra;
 
     @Column(name = "TotalPago", nullable = false)
     private BigDecimal totalPago;

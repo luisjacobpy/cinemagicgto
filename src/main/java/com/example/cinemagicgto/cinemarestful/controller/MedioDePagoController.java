@@ -22,5 +22,8 @@ public class MedioDePagoController {
         return medioDePagoService.findAllMediosDePago();
     }
 
+    // Registrar un nuevo medio de pago
+
+
 
 }

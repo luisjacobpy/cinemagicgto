@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PeliculaServiceImpl implements PeliculaService{
@@ -60,9 +61,19 @@ public class PeliculaServiceImpl implements PeliculaService{
 
     }
 
+
     // FIND BY ID
     @Override
-    public Pelicula findPeliculaById(Long id) throws PeliculaNotFoundException {
-        return null;
+    public Pelicula findPeliculaById(Integer id) throws PeliculaNotFoundException {
+        //  Programammos la logica para la Excepcion
+        Optional<Pelicula> pelicula = peliculaRepository.findById(id);
+        if(!pelicula.isPresent()){
+            throw new PeliculaNotFoundException("Pelicula no encontrada con ese ID");
+        }
+        // Else
+        return pelicula.get();
     }
+
+
+
 }

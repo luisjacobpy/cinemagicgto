@@ -1,17 +1,25 @@
 package com.example.cinemagicgto.cinemarestful.service;
 
 import com.example.cinemagicgto.cinemarestful.entity.Usuario;
+import com.example.cinemagicgto.cinemarestful.error.UsuarioNotFoundException;
 import com.example.cinemagicgto.cinemarestful.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class UsuarioServiceImp implements UsuarioService{
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    @Override
+    public List<Usuario> findAllUsuarios() {
+        return usuarioRepository.findAll();
+    }
 
     // SAVE USUARIO
     @Override
@@ -34,5 +42,22 @@ public class UsuarioServiceImp implements UsuarioService{
             usuarioDB.setTipoUsuario(usuario.getTipoUsuario());
         }
         return usuarioRepository.save(usuarioDB);
+    }
+
+    @Override
+    public void deleteUsuario(Integer id) {
+        usuarioRepository.deleteById(id);
+    }
+
+    @Override
+    public Usuario findUsuarioById(Integer id) throws UsuarioNotFoundException {
+        // Programamos la logica para le Exception
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if(!usuario.isPresent()){
+            throw new UsuarioNotFoundException("Usuario no encontrado revise eL Id y vuelva a intentar");
+        }
+        // else
+        return usuario.get();
+
     }
 }

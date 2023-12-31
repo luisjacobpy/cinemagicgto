@@ -2,15 +2,15 @@ package com.example.cinemagicgto.cinemarestful.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "funcion")
+@Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +27,19 @@ public class Funcion {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioID")
-    private Horario horarioID;
+    private Horario horario;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "HoraInicioID")
+    private Horario horaInicioID;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "FechaID")
+    private Horario fecha;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "SalaID")
+    private Sala sala;
 
     @Column(name = "Clasificacion", nullable = false)
     private String clasificacion;
@@ -35,17 +47,8 @@ public class Funcion {
     @Column(name = "NumAsientosDisponibles", nullable = false)
     private int numAsientosDisponibles;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "SalaID")
-    private Horario salaID;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "FechaID")
-    private Horario fechaID;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "HoraInicioID")
-    private Horario horaInicioID;
+    @OneToMany(mappedBy = "asientos", cascade = CascadeType.ALL)
+    private List<Asiento> asientos;
 
     @Column(name = "CostoFuncion", nullable = false)
     private BigDecimal costoFuncion;

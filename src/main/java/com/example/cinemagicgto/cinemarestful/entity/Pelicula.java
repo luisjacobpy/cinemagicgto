@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "pelicula")
 @Data
@@ -14,11 +16,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Pelicula {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name="PeliculaID", nullable = false)
-    private int peliculaID;
+    private UUID peliculaID;
 
-    @Column(name="PeliculaID", nullable = false)
+    @Column(name="Titulo", nullable = false)
     private String titulo; // Nombre de la pelicula
 
     @Column(name="Descripcion", nullable = false)

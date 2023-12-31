@@ -21,8 +21,8 @@ public interface PeliculaService {
 
 
 
-    // Busqueda por id, puede devolver un LocalNotFoundException
-    Pelicula findPeliculaById(Long id) throws PeliculaNotFoundException;
+    // Busqueda por id, puede devolver un PeliculaNotFoundException
+    Pelicula findPeliculaById(Integer id) throws PeliculaNotFoundException;
 
 
 

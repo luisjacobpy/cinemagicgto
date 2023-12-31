@@ -18,6 +18,10 @@ public class Asiento {
     @Column(name = "AsientoID")
     private int asientoID; // Numero de asiento
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FuncionID")
+    private Funcion funcion;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "HorarioId")
     private Horario horarioID;

@@ -17,4 +17,5 @@ public class MedioDePago {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int medioPagoID;
     private String nombre;
+    private String institucionBancariaAsociada;
 }
